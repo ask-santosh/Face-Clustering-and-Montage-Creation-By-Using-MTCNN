@@ -71,7 +71,7 @@ for imagePath in paths.list_images(image_new_folder):
         text = "No"
     cv2.putText(image_new, "{}: {:.2f}".format(text, fm), (2, 15),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), int(0.5))
-    cv2.imshow("Image", image_new)
+    # cv2.imshow("Image", image_new)
     key = cv2.waitKey(0)
     dir_loc = './blur_cluster_face/face_' + str(count) + '.jpg'
     count += 1
@@ -80,12 +80,12 @@ for imagePath in paths.list_images(image_new_folder):
 #creating montages of blur calculated images---------------------
 blur_image_folder = './blur_cluster_face'
 blur_image_path = list(paths.list_images(blur_image_folder))
-imgs = []
-for img_path in blur_image_path:
-    img = cv2.imread(blur_image_path)
-    imgs.append(img)
+blur_imgs = []
+for blur_img_path in blur_image_path:
+    blur_img = cv2.imread(blur_img_path)
+    blur_imgs.append(blur_img)
 
-montages = build_montages(imgs, (75, 75), (12, 11))
+montages = build_montages(blur_imgs, (75, 75), (12, 11))
 
 for montage in montages:
     cv2.imshow("blur_montage_output", montage)
