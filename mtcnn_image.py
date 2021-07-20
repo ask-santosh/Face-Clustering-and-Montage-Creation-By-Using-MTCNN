@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 from mtcnn.mtcnn import MTCNN
 from imutils import build_montages
 from imutils import paths
@@ -65,12 +66,14 @@ for imagePath in paths.list_images(image_new_folder):
     image_new = cv2.imread(imagePath)
     gray = cv2.cvtColor(image_new, cv2.COLOR_BGR2GRAY)
     fm = variance_of_laplacian(gray)
+    # fm = np.array([fm])
+    # fm = np.sort(fm)
     print(fm)
     text = "Yes"
     if fm < 3000:
         text = "No"
     cv2.putText(image_new, "{}: {:.2f}".format(text, fm), (2, 15),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), int(0.5))
+                cv2.FONT_HERSHEY_PLAIN, 0.5, (0, 255, 0), 1)
     # cv2.imshow("Image", image_new)
     key = cv2.waitKey(0)
     dir_loc = './blur_cluster_face/face_' + str(count) + '.jpg'
@@ -85,7 +88,7 @@ for blur_img_path in blur_image_path:
     blur_img = cv2.imread(blur_img_path)
     blur_imgs.append(blur_img)
 
-montages = build_montages(blur_imgs, (75, 75), (12, 11))
+montages = build_montages(blur_imgs, (100, 100), (12, 11))
 
 for montage in montages:
     cv2.imshow("blur_montage_output", montage)
