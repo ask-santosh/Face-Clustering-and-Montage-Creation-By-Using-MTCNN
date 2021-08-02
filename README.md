@@ -3,8 +3,8 @@ Creating a face cluster based on the highest confidence score and showing it in 
 
 ### Execution
 1. Put your image on Input and Output folder
-2. Run image.py
-3. Crop images will be stored in folder .
+2. Run mtcnnn_image.py
+3. Crop images will be stored in blur_cluster_face folder .
 
 ### Output
 <p align="center">
