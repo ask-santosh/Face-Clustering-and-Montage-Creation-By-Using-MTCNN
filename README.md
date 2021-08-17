@@ -1,5 +1,5 @@
 # Face-Clustering-and-Montage-Creation-By-Using-MTCNN
-Creating a face cluster based on the highest confidence score and showing it in using opencv montage .
+Creating a face cluster based on the highest confidence score and showing it in using opencv montage . This project is basically focussed on images only .
 
 ### Execution
 1. Put your image on Input and Output folder
